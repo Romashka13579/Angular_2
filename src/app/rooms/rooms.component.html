@@ -3,4 +3,21 @@
 Number Of Rooms:
 <div [innerText]="numberOfRooms"></div>
 </div>
+
+{{ rooms?.availableRooms ?? 'No rooms' }}
+
+<div *ngIf="rooms.availableRooms > 0">
+    Rooms list
+    <!-- {{roomlist}} -->
+    <table>
+        <tr>
+            <th>Room Type</th>
+            <th>Room Number</th>
+            <th>Room Proce</th>
+            <th>Room Quality</th>
+            <th>Room Free Time</th>
+        </tr>
+    </table>
+</div>
+
 <button (click) = "funcName()">Toggle</button>
