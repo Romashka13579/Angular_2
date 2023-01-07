@@ -11,11 +11,22 @@ Number Of Rooms:
     <!-- {{roomlist}} -->
     <table>
         <tr>
+            <th>Index</th>
+            <th>EVEN/ODD</th>
             <th>Room Type</th>
             <th>Room Number</th>
-            <th>Room Proce</th>
+            <th>Room Price</th>
             <th>Room Quality</th>
             <th>Room Free Time</th>
+        </tr>
+        <tr *ngFor="let room of roomlist; let e = even; let o = odd; let i = index">
+            <th>{{i+1}}</th>
+            <th>{{ e ? "Even" : "Odd"}}</th>
+            <th>{{ room.roomType }}</th>
+            <th>{{ room.roomNumber }}</th>
+            <th>{{ room.roomPrice }}</th>
+            <th>{{ room.roomQuality }}</th>
+            <th>{{ room.roomFreeTime }}</th>
         </tr>
     </table>
 </div>

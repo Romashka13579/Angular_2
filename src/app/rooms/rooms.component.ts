@@ -20,8 +20,8 @@ export class RoomsComponent {
 
   roomlist: RoomList[] = [
     {roomType:'with 2 bedrooms',roomNumber:10, roomPrice:200, roomQuality:'good', roomFreeTime: new Date('10-11-2021')},
-    {roomType:'with 2 bedrooms',roomNumber:15, roomPrice:150, roomQuality:'nopmal', roomFreeTime: new Date('13-10-2021')},
-    {roomType:'with 3 bedrooms',roomNumber:16, roomPrice:400, roomQuality:'perfectd', roomFreeTime: new Date('21-10-2021')},
+    {roomType:'with 2 bedrooms',roomNumber:15, roomPrice:150, roomQuality:'normal', roomFreeTime: new Date('11-1-2021')},
+    {roomType:'with 3 bedrooms',roomNumber:16, roomPrice:400, roomQuality:'perfect', roomFreeTime: new Date('10-25-2021')},
   ]
 
   funcName(){
