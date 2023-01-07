@@ -1,2 +1,13 @@
 <h1>hello world</h1>
-<roma-rooms></roma-rooms>
+
+<div [ngSwitch]="loginType">
+    <div *ngSwitchCase="'User'">
+        Welcome User!
+    </div>
+    <div *ngSwitchCase="'Admin'">
+        <roma-rooms></roma-rooms>
+    </div>
+    <div *ngSwitchDefault>
+        You need to login first
+    </div>
+</div>
