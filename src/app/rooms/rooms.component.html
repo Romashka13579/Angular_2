@@ -1,7 +1,7 @@
 <p>Welcome To {{hotelName}}</p>
 <div [hidden]="hideRooms">
 Number Of Rooms:
-<div [innerText]="numberOfRooms"></div>
+<div [ngStyle] = "{'color' : rooms.availableRooms > 0 ? 'darkgreen' : 'red'}" [innerText]="numberOfRooms"></div>
 </div>
 
 {{ rooms?.availableRooms ?? 'No rooms' }}
@@ -19,14 +19,14 @@ Number Of Rooms:
             <th>Room Quality</th>
             <th>Room Free Time</th>
         </tr>
-        <tr *ngFor="let room of roomlist; let e = even; let o = odd; let i = index">
-            <th>{{i+1}}</th>
-            <th>{{ e ? "Even" : "Odd"}}</th>
-            <th>{{ room.roomType }}</th>
-            <th>{{ room.roomNumber }}</th>
-            <th>{{ room.roomPrice }}</th>
-            <th>{{ room.roomQuality }}</th>
-            <th>{{ room.roomFreeTime }}</th>
+        <tr [ngClass]="e? 'even' : 'odd'" *ngFor="let room of roomlist; let e = even; let o = odd; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{ e ? "Even" : "Odd"}}</td>
+            <td>{{ room.roomType }}</td>
+            <td>{{ room.roomNumber }}</td>
+            <td>{{ room.roomPrice }}</td>
+            <td>{{ room.roomQuality }}</td>
+            <td>{{ room.roomFreeTime }}</td>
         </tr>
     </table>
 </div>
