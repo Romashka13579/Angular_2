@@ -10,4 +10,5 @@ export interface RoomList{
     roomPrice:number;
     roomQuality:string;
     roomFreeTime:Date;
+    roomRating:number;
 }
