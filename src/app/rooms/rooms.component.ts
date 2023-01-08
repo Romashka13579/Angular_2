@@ -33,4 +33,10 @@ export class RoomsComponent implements OnInit {
   funcName(){
     this.hideRooms = !this.hideRooms;
   }
+
+  selectedRoomType!: string;
+
+  selectRoom(room: RoomList){
+    this.selectedRoomType = room.roomType;
+  }
 }
