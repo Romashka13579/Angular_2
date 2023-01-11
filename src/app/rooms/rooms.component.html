@@ -8,10 +8,14 @@ Number Of Rooms:
 
 <!-- {{roomlist | json}} -->
 
+<div>
+    <button class="btn btn-primary" (click)="addRoom()"> here</button>
+</div>
+
 <div *ngIf="rooms.availableRooms > 0">
 <roma-rooms-list [rooms]="roomlist" (selectedRoom)="selectRoom($event)"></roma-rooms-list>
 </div>
 
-<div>{{selectedRoomType | json}}</div>
+<div>{{selectedRoomType | date : 'dd / MM / yy'}}</div>
 
 <button (click) = "funcName()">Toggle</button>

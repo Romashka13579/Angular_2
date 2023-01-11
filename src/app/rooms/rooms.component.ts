@@ -12,31 +12,39 @@ export class RoomsComponent implements OnInit {
 
   hideRooms = false;
 
-  rooms : Room = {
+  rooms: Room = {
     availableRooms: 10,
-    bookedRooms:5,
-    allRooms:15,
+    bookedRooms: 5,
+    allRooms: 15,
   }
 
   roomlist: RoomList[] = [];
 
-  constructor(){}
+  constructor() { }
 
   ngOnInit(): void {
     this.roomlist = [
-      {roomType:'with 2 bedrooms',roomNumber:10, roomPrice:200, roomQuality:'good', roomFreeTime: new Date('10-11-2021'), roomRating: 4.53553,},
-      {roomType:'with 2 bedrooms',roomNumber:15, roomPrice:150, roomQuality:'normal', roomFreeTime: new Date('11-1-2021'), roomRating: 3.1259,},
-      {roomType:'with 3 bedrooms',roomNumber:16, roomPrice:400, roomQuality:'perfect', roomFreeTime: new Date('10-25-2021'), roomRating: 2.8665,},
+      { roomType: 'with 2 bedrooms', roomNumber: 10, roomPrice: 200, roomQuality: 'good', roomFreeTime: new Date('10-11-2021'), roomRating: 4.53553, },
+      { roomType: 'with 2 bedrooms', roomNumber: 15, roomPrice: 150, roomQuality: 'normal', roomFreeTime: new Date('11-1-2021'), roomRating: 3.1259, },
+      { roomType: 'with 3 bedrooms', roomNumber: 16, roomPrice: 400, roomQuality: 'perfect', roomFreeTime: new Date('10-25-2021'), roomRating: 2.8665, },
     ]
   }
 
-  funcName(){
+  funcName() {
     this.hideRooms = !this.hideRooms;
   }
 
-  selectedRoomType!: string;
+  selectedRoomType!: Date;
 
-  selectRoom(room: RoomList){
-    this.selectedRoomType = room.roomType;
+  selectRoom(room: RoomList) {
+    this.selectedRoomType = room.roomFreeTime;
+  }
+
+  addRoom() {
+    const oneRoom: RoomList = { 
+      roomType: 'with 1 bedroom and picturesque view', roomNumber: 22, roomPrice: 170, roomQuality: 'very good', roomFreeTime: new Date('10-15-2021'), roomRating: 4.865, 
+    }
+    // this.roomlist.push(oneRoom);
+    this.roomlist = [...this.roomlist, oneRoom];
   }
 }
