@@ -30,8 +30,11 @@ export class RoomsComponent implements OnInit {
     ]
   }
 
+  title = 'Room list'
+
   funcName() {
     this.hideRooms = !this.hideRooms;
+    this.title = "new title"
   }
 
   selectedRoomType!: Date;

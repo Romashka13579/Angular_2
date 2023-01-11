@@ -13,7 +13,7 @@ Number Of Rooms:
 </div>
 
 <div *ngIf="rooms.availableRooms > 0">
-<roma-rooms-list [rooms]="roomlist" (selectedRoom)="selectRoom($event)"></roma-rooms-list>
+<roma-rooms-list [rooms]="roomlist" (selectedRoom)="selectRoom($event)" [title] = "title"></roma-rooms-list>
 </div>
 
 <div>{{selectedRoomType | date : 'dd / MM / yy'}}</div>
