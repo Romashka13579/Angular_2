@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
 
 @Component({
@@ -6,7 +7,7 @@ import { Room, RoomList } from './rooms';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.css']
 })
-export class RoomsComponent implements OnInit {
+export class RoomsComponent implements OnInit, DoCheck {
   hotelName = "Roma`s Hotel";
   numberOfRooms = "10";
 
@@ -20,6 +21,8 @@ export class RoomsComponent implements OnInit {
 
   roomlist: RoomList[] = [];
 
+  @ViewChild(HeaderComponent, {static : true}) headerComponent!: HeaderComponent;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -28,6 +31,10 @@ export class RoomsComponent implements OnInit {
       { roomType: 'with 2 bedrooms', roomNumber: 15, roomPrice: 150, roomQuality: 'normal', roomFreeTime: new Date('11-1-2021'), roomRating: 3.1259, },
       { roomType: 'with 3 bedrooms', roomNumber: 16, roomPrice: 400, roomQuality: 'perfect', roomFreeTime: new Date('10-25-2021'), roomRating: 2.8665, },
     ]
+  }
+
+  ngDoCheck(): void {
+    console.log("An event has happened");
   }
 
   title = 'Room list'
@@ -50,4 +57,8 @@ export class RoomsComponent implements OnInit {
     // this.roomlist.push(oneRoom);
     this.roomlist = [...this.roomlist, oneRoom];
   }
+  ngAfterViewInit(){
+    console.log(this.headerComponent);
+  }
+  
 }
