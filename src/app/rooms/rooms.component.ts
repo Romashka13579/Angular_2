@@ -7,7 +7,7 @@ import { Room, RoomList } from './rooms';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.css']
 })
-export class RoomsComponent implements OnInit, DoCheck {
+export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
   hotelName = "Roma`s Hotel";
   numberOfRooms = "10";
 
@@ -21,7 +21,7 @@ export class RoomsComponent implements OnInit, DoCheck {
 
   roomlist: RoomList[] = [];
 
-  @ViewChild(HeaderComponent, {static : true}) headerComponent!: HeaderComponent;
+  @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
 
   constructor() { }
 
@@ -58,7 +58,7 @@ export class RoomsComponent implements OnInit, DoCheck {
     this.roomlist = [...this.roomlist, oneRoom];
   }
   ngAfterViewInit(){
-    console.log(this.headerComponent);
+    this.headerComponent.header = "Header"
   }
   
 }
