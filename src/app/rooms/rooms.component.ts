@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, DoCheck, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, OnDestroy } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
 
@@ -7,7 +7,7 @@ import { Room, RoomList } from './rooms';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.css']
 })
-export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
+export class RoomsComponent implements OnInit, DoCheck, AfterViewInit, OnDestroy {
   hotelName = "Roma`s Hotel";
   numberOfRooms = "10";
 
@@ -64,6 +64,9 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
     // this.headerComponents.forEach
     this.headerComponents.last.header = "Last Header"
   }
-
+  ngOnDestroy(): void {
+    console.log('on destroy is called');
+    
+  }
   
 }

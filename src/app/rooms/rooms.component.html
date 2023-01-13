@@ -15,7 +15,7 @@ Number Of Rooms:
     <button class="btn btn-primary" (click)="addRoom()"> here</button>
 </div>
 
-<div *ngIf="rooms.availableRooms > 0">
+<div *ngIf="hideRooms">
 <roma-rooms-list [rooms]="roomlist" (selectedRoom)="selectRoom($event)" [title] = "title"></roma-rooms-list>
 </div>
 
