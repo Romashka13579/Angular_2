@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, OnDestroy } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
+import { RoomsService } from './services/rooms.service';
 
 @Component({
   selector: 'roma-rooms',
@@ -25,14 +26,14 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit, OnDestroy
 
   @ViewChildren(HeaderComponent) headerComponents!: QueryList<HeaderComponent>;
   
-  constructor() { }
+  // roomService = new RoomsService();
+
+  constructor(private roomsService: RoomsService) { 
+
+  }
 
   ngOnInit(): void {
-    this.roomlist = [
-      { roomType: 'with 2 bedrooms', roomNumber: 10, roomPrice: 200, roomQuality: 'good', roomFreeTime: new Date('10-11-2021'), roomRating: 4.53553, },
-      { roomType: 'with 2 bedrooms', roomNumber: 15, roomPrice: 150, roomQuality: 'normal', roomFreeTime: new Date('11-1-2021'), roomRating: 3.1259, },
-      { roomType: 'with 3 bedrooms', roomNumber: 16, roomPrice: 400, roomQuality: 'perfect', roomFreeTime: new Date('10-25-2021'), roomRating: 2.8665, },
-    ]
+    this.roomlist = this.roomsService.getRooms();
   }
 
   ngDoCheck(): void {
