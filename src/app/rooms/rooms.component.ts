@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, OnDestroy } from '@angular/core';
+import { Component, DoCheck, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, OnDestroy, Optional } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
 import { RoomsService } from './services/rooms.service';
@@ -28,9 +28,7 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit, OnDestroy
   
   // roomService = new RoomsService();
 
-  constructor(private roomsService: RoomsService) { 
-
-  }
+  constructor(@Optional() private roomsService: RoomsService) { }
 
   ngOnInit(): void {
     this.roomlist = this.roomsService.getRooms();
